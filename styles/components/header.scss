@@ -1,0 +1,165 @@
+// global nav 
+
+.navbar{
+	display: flex;
+	position: fixed;
+	background-color: rgba(0,0,0,.9);
+	width: 100vw;
+	color: white;
+	height: 60px;
+	z-index: 1;
+}
+
+.nav-logo-container,
+.nav-container,
+.search-container{
+	flex: 1 1 0;
+}
+
+// logo
+
+.nav-logo-container{
+	display: inline-block;
+	width: 250px;
+
+	div{
+		height: 100%;
+	}
+
+	fig{
+		height: 100%;
+		width: 60px;
+		box-sizing: border-box;
+		padding: 20px 10px;
+		float: left;
+	}
+
+	aside{
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+	}
+
+	span{
+		height: calc(100% / 2);
+		display: flex;
+		font-size: 20px;
+
+
+
+		&:nth-of-type(1){
+			// display: block;
+			align-items: flex-end;
+
+		}
+
+		&:nth-of-type(2){
+			align-items: flex-start;
+
+			// display: block;
+		}
+	}
+}
+
+// nav links
+.nav-container{
+	display: flex;
+	align-items: center;
+
+	div{
+		width: 100%;
+
+		ul{
+			display: flex;
+			height: 100%;
+
+			li{
+				flex: 1 1 0;
+				text-align: center;
+				align-items: center;
+				transition-duration: 300ms;
+				
+				&:hover{
+					transform: scale(1.4);
+					transition-duration: 300ms;
+
+				}
+
+
+				a{
+					color: #fff;
+					text-transform: capitalize;
+
+					&:hover{
+						transition-duration: 300ms;
+						color: #f00;
+					}
+				}
+			}
+		}
+	}
+
+}
+
+
+
+// search
+.search-container{
+	display: flex;
+	align-items: center;
+	flex-direction: row-reverse;
+
+	input{
+		margin-right: 40px;
+		text-align: center;
+
+
+	    color: #fff;
+	    // background-color: #092B40;
+	    border: 3px solid orange;
+	    // border-radius: 10px;
+	    // text-indent: 10px;
+	    height: 20px;
+	    width: 20px;
+	    border-radius: 50%;
+	    // text-align: center;
+	    // border-radius: 22px;
+	    transition-duration: .2s;
+	    // padding-right: 30px;
+	    // font-size: 1.2em;
+
+	    &:focus{
+	    	outline: none;
+	    }
+
+	    &:hover{
+	    	cursor: pointer;
+	    }
+	}
+
+    &::after{
+		content: ' ';
+		display: inline-block;
+		position: relative;
+		width: 3px;
+		left: 27px;
+		top: 13px;
+		height: 10px;
+		transform: rotate(-45deg);
+		background: orange;
+		transition-duration: .07s;
+    }
+
+    &[open]{
+    	input{
+    		width: 170px;
+    		border-radius: 5px;
+    		color: #000;
+    	}
+
+    	&::after{
+    		opacity: 0;
+    	}
+    }
+
+}

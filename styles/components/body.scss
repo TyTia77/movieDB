@@ -3,9 +3,90 @@
 .hero-container,
 .popular,
 .current{
-	height: 300px;
+	height: 330px;
 }
 
 .hero-container{
-	background-color: red;
+	position: relative;
+	overflow: hidden;
+	
+	.new-movie-title{
+		position: absolute;
+		color: white;
+		font-size: 80px;
+		transform: translate(80px, 30px);
+		text-transform: capitalize;
+	}
+
+	.fa{
+		position: absolute;
+		color: orange;
+		top: 50%;
+		transform: translateY(-50%);
+
+		&:nth-of-type(1){
+			left: 20px;
+		}
+
+		&:nth-of-type(2){
+			right: 20px;
+		}
+	}
+
+	button{
+		position: absolute;
+		left: 80px;
+		font-size: 20px;
+		padding: 5px 10px;
+		background-color: orange;
+		border: none;
+		color: white;
+		text-transform: capitalize;
+		transition-duration: 300ms;
+
+		&:hover{
+			transform: scale(1.15);
+		}
+
+		&:nth-of-type(1){
+			bottom: 70px;
+		}
+		&:nth-of-type(2){
+			bottom: 20px;
+		}
+	}
+
+	img{
+		width: 100%;
+	}
+}
+
+.popular{
+	display: block;
+	width: 100vw;
+	overflow-y: hidden;
+	overflow-x: auto;
+
+	h1{
+		text-transform: capitalize;
+		text-decoration: underline;
+		padding: 5px;
+	}
+
+	.img-test-container{
+		width: 100vw;
+		height: 100%;
+		white-space: nowrap;
+		overflow-x: none;
+		overflow-y: scroll;
+
+		img{
+			margin: 5px;
+			margin-right: 20px;
+			border: 2px solid black;
+			border-radius: 5px;
+			height: 250px;
+		}
+	}
+
 }

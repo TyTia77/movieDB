@@ -15,7 +15,11 @@ export function fetchNowShowingMovies() {
       .then((response) => {
         let newMovieList = response.data.results.map( mov => {
           let imgPath = mov.poster_path;
-          mov.poster_path = info.images_url + '/w185' +imgPath;
+          if(imgPath){
+            mov.poster_path = info.images_url + '/w185' +imgPath;
+          } else {
+            console.log('not found');
+          }
           return mov;
         });
 

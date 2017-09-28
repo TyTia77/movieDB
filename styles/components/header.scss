@@ -17,7 +17,6 @@
 }
 
 // logo
-
 .nav-logo-container{
 	display: inline-block;
 	width: 250px;
@@ -45,18 +44,12 @@
 		display: flex;
 		font-size: 20px;
 
-
-
 		&:nth-of-type(1){
-			// display: block;
 			align-items: flex-end;
-
 		}
 
 		&:nth-of-type(2){
 			align-items: flex-start;
-
-			// display: block;
 		}
 	}
 }
@@ -82,7 +75,6 @@
 				&:hover{
 					transform: scale(1.4);
 					transition-duration: 300ms;
-
 				}
 
 
@@ -92,7 +84,7 @@
 
 					&:hover{
 						transition-duration: 300ms;
-						color: #f00;
+						color: orange;
 					}
 				}
 			}
@@ -100,8 +92,6 @@
 	}
 
 }
-
-
 
 // search
 .search-container{
@@ -112,21 +102,13 @@
 	input{
 		margin-right: 40px;
 		text-align: center;
-
-
-	    color: #fff;
-	    // background-color: #092B40;
+	    color: #000;
+	    background-color: transparent;
 	    border: 3px solid orange;
-	    // border-radius: 10px;
-	    // text-indent: 10px;
 	    height: 20px;
 	    width: 20px;
 	    border-radius: 50%;
-	    // text-align: center;
-	    // border-radius: 22px;
 	    transition-duration: .2s;
-	    // padding-right: 30px;
-	    // font-size: 1.2em;
 
 	    &:focus{
 	    	outline: none;
@@ -154,7 +136,7 @@
     	input{
     		width: 170px;
     		border-radius: 5px;
-    		color: #000;
+    		color: #fff;
     	}
 
     	&::after{

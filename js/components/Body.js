@@ -3,12 +3,12 @@ import { connect } from "react-redux"
 
 require('../../styles/components/body.scss');
 
-import { fetchPopularMovies } from "../actions/popularActions"
+import { fetchPopularMovies } from "../actions/popularMoviesActions"
 
 // connects redux with react
 @connect(store => {
   return {
-    movies: store.popular.movies,
+    movies: store.popularMovies.movies,
   }
 })
 export default class Body extends React.Component {
@@ -30,19 +30,17 @@ export default class Body extends React.Component {
     });
 
     return (
-        <div className="main">
-
-            <div className="hero-container">
+        <div class="main">
+            <div class="hero-container">
                 <h1> hero section </h1>
             </div>
-
-            <div className="popular">
-                <h1> popular section </h1>
-                <div>
+            <div class="popular">
+                <h1> popular movies </h1>
+                <div class="img-test-container">
                   {mapImg}
                 </div>
             </div>
-            <div className="current">
+            <div class="current">
                 <h1> currently in cinemas section </h1>
             </div>
         </div>

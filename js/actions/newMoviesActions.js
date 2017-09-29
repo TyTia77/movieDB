@@ -5,7 +5,8 @@ let date = new Date();
 let year = date.getFullYear();
 
 let info = getInfo();
-let api = info.base_url +'/movie/upcoming' +info.api_key +'&language=en-US&page=1&region=au';
+let cors = 'https://cors-anywhere.herokuapp.com/';
+let api = cors +info.base_url +'/movie/upcoming' +info.api_key +'&language=en-US&page=1&region=au';
 
 
 //https://api.themoviedb.org/3/movie/upcoming?api_key=0aeb56f883f453e1f523338db440eb9e&language=en-US&page=1&region=au

@@ -1,15 +1,12 @@
 import React from "react";
 
 export default class Logo extends React.Component {
-  handleChange(e) {
-    const title = e.target.value;
-    this.props.changeTitle(title);
-  }
-
   render() {
     return (
       <div>
-        <fig> logo </fig>
+        <div class="logo-container">
+          <span class="logo">TyDb</span>
+        </div>
         <aside>
           <span> TMDB </span>
           <span> Ty Movie Database</span>

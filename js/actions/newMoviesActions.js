@@ -19,7 +19,11 @@ export function fetchNewMovies() {
       .then((response) => {
         let newMovieList = response.data.results.map( mov => {
           let imgPath = mov.backdrop_path;
-          mov.backdrop_path = info.images_url + '/w1280' +imgPath;
+          if (imgPath){
+            mov.backdrop_path = info.images_url + '/w1280' +imgPath;
+          } else {
+            mov.backdrop_path = false;
+          }
           return mov;
         });
 

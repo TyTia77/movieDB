@@ -3,11 +3,6 @@ import React from "react";
 require('../../styles/components/footer.scss')
 
 export default class Footer extends React.Component {
-  handleChange(e) {
-    const title = e.target.value;
-    this.props.changeTitle(title);
-  }
-
   render() {
     return (
       <div class="footer">

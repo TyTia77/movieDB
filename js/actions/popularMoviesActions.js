@@ -5,6 +5,7 @@ let date = new Date();
 let year = date.getFullYear();
 
 let info = getInfo();
+let cors = 'https://cors-anywhere.herokuapp.com/';
 let api = info.base_url +'/discover/movie' +info.api_key +'&sort_by=popularity.desc&year='+year;
 
 

@@ -1,16 +1,14 @@
-// require('../styles/index.scss');
-
 import React from "react"
 import ReactDOM from "react-dom"
-import { Router, Route, IndexRoute, hashHistory } from "react-router"
 import { Provider } from "react-redux"
+import { Router, Route, IndexRoute, hashHistory } from "react-router"
 
-import store from "./store"
-import Layout from "./pages/Layout"
-import Body from "./components/Body"
 import Actor from "./pages/Actor"
-import Tv from "./pages/Tv"
+import Body from "./components/Body"
+import Layout from "./pages/Layout"
 import Movie from "./pages/Movie"
+import store from "./store"
+import Tv from "./pages/Tv"
 
 ReactDOM.render(
 	<Provider store={store}>
@@ -18,7 +16,7 @@ ReactDOM.render(
 	    <Route path="/" component={Layout}>
 	      <IndexRoute component={Body}></IndexRoute>
 	      <Route path="actor" name="actor" component={Actor}></Route>
-	      <Route path="movie" name="movie" component={Movie}></Route>
+	      <Route path="movie(/:id)" name="movie" component={Movie}></Route>
 	      <Route path="tv" name="tv" component={Tv}></Route>
 	    </Route>
 	  </Router>

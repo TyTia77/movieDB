@@ -15,13 +15,13 @@ export default class Header extends React.Component {
   }
 
 
-//     Initialize / Construction
-// getDefaultProps() (React.createClass) or MyComponent.defaultProps (ES6 class)
-// getInitialState() (React.createClass) or this.state = ... (ES6 constructor)
-// componentWillMount()
-// render()
-// Children initialization & life cycle kickoff
-// componentDidMount()
+    // Initialize / Construction
+    // getDefaultProps() (React.createClass) or MyComponent.defaultProps (ES6 class)
+    // getInitialState() (React.createClass) or this.state = ... (ES6 constructor)
+    // componentWillMount()
+    // render()
+    // Children initialization & life cycle kickoff
+    // componentDidMount()
 
     // componentsWillMount() runs before render
 

@@ -8,14 +8,6 @@ import Header from "../components/Header"
 require('../../styles/index.scss')
 
 export default class Layout extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-    };
-  }
-
-  componentWillMount(){
-  }
 
   render() {
     return (

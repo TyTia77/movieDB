@@ -3,7 +3,6 @@ import { getInfo } from "./api"
 
 
 let info = getInfo();
-let cors = 'https://cors-anywhere.herokuapp.com/';
 // let api = info.base_url +'/movie/';
 
 

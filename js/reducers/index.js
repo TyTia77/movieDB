@@ -1,7 +1,11 @@
 import { combineReducers } from "redux"
 
-import popular from "./popularReducer"
+import popularMovies from "./popularMoviesReducer"
+import nowShowingMovies from "./nowShowingMoviesReducer"
+import newMovies from "./newMoviesReducer"
 
 export default combineReducers({
-  popular,
+  popularMovies,
+  nowShowingMovies,
+  newMovies,
 })

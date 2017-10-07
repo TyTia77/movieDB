@@ -6,7 +6,6 @@ import MovieDetails from "../components/movie/MovieDetails"
 export default class Movie extends React.Component {
 
 	componentWillMount(){
-
 		console.log('props will', this.props.router.getCurrentLocation());
 	}
 

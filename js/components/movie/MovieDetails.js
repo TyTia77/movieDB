@@ -1,22 +1,25 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import { fetchMovieDetails } from "../../actions/moviesDetailActions"
+import { fetchMovieDetails, fetchCast } from "../../actions/moviesDetailActions"
+
+require('../../../styles/components/movie-details.scss')
 
 @connect(store => {
   return {
-    details: store.movieDetails.details
+    details: store.movieDetails.details,
+    cast: store.movieDetails.cast
   }
 })
 export default class MovieDetails extends React.Component {
 
 	componentWillMount(){
   		this.props.dispatch(fetchMovieDetails(this.props.id));
+  		this.props.dispatch(fetchCast(this.props.id));
 	}
 
 	componentWillUnmount(){
-		// console.log('unmounting from details');
-		// this.props.details = [];
+		//TODO clear on unmount		
 	}
 
 	componentWillReceiveProps(newProps){
@@ -33,43 +36,77 @@ export default class MovieDetails extends React.Component {
 
 
 	render() {
-		const { details } = this.props;
+		const { details, cast } = this.props;
 
-		let releaseDate = details.release_date;
+		let releaseDate = details.release_date
+			? details.release_date
+				.split('')
+				.slice(0, details.release_date.indexOf('-'))
+				.join('')
+			: '';
 
-		if (releaseDate){
-			releaseDate 
-				= releaseDate
-					.split('')
-					.slice(0, releaseDate.indexOf('-'))
-					.join('');
+		let mapCast = cast.cast 
+			? cast.cast.filter(cast => {
+				return cast.profile_path;
+			}).map((filteredCast, index) => {
+				return (
+					<div key={index} class="cast-container">
+						<img src={filteredCast.profile_path}/>
+						<div class="cast-name-container">
+							<p>{filteredCast.name}</p>
+							<p>{filteredCast.character}</p>
+						</div>
+						<br/>
+					</div>
+				);
+			}) 
+			: [];
 
+		let movieLengthHr;
+		let movieLengthMin;
 
-			// releaseDate = releaseDate.slice(0, releaseDate.indexOf('-')).join('');
-
+		if (details.runtime){
+			movieLengthHr = Math.floor(details.runtime / 60);
+			movieLengthMin = details.runtime % 60;
 		}
 
-		 // releaseDate = test.split('');
+		let genres = details.genres
+			? details.genres.map((genre, index) =>{
+				return (
+					<li key={index}>{genre.name}</li>
+				);
+			})
+			: [];
 
+		console.log('details', details);
 
-
-
-		// console.log(details.release_date.indexOf('-'));
-
-		// const date = details.release_date.slice(0, details.release_date.indexOf('-'));
-
-		console.log('props', this.props.details);
+		// console.log('length', movieLength);
 
 		return (
-		  <div>
-		    <h1> {details.title} ({releaseDate}) </h1>
+		  <div class="movie-detail-container">
+		    <h1 class="movie-detail-title"> {details.title} ({releaseDate}) </h1>
 		    <br/>
-		    runtime: {details.runtime} mins<br/><br/>
-		    vote: {details.vote_average} <br/><br/>
-		    {details.overview}
+		    <i class="fa fa-clock-o" aria-hidden="true"></i> &nbsp;
+		    {movieLengthHr} hr {movieLengthMin} mins &nbsp;
+		    | &nbsp; <ul>{genres}</ul> &nbsp;
+		    | &nbsp; <i class="fa fa-star" aria-hidden="true"></i> &nbsp;
+ 			{details.vote_average}/10 <br/><br/>
 
-		    <br/><br/>
-		    <br/><br/>
+ 			<fig>
+			   	<img src={details.poster_path}/>
+			   	<div>
+			   		trailor here
+			   	</div>
+			</fig>
+
+		   	<br/>
+
+	    	<p class="overview">{details.overview}</p>
+
+
+		    <br/><br/><br/>
+		    CAST:<br/><br/>
+		    {mapCast}
 		  </div>
 		);
 	}

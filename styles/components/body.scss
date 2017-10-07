@@ -92,8 +92,6 @@
 }
 
 .dot-nav-container{
-	// background-color: red;
-	// width: 100vw;
 	position: relative;
 	text-align: center;
 	top: -30px;
@@ -134,6 +132,12 @@
 			border: 2px solid black;
 			border-radius: 5px;
 			height: 250px;
+			transition-duration: 300ms;
+
+			&:hover{
+				box-shadow: 5px 6px 13px 1px rgba(0, 0, 0, 0.8);
+			}
+
 		}
 	}
 

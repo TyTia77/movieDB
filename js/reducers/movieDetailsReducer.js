@@ -1,5 +1,6 @@
 export default function reducer(state={
     details: [],
+    cast: [],
     fetching: false,
     fetched: false,
     error: null,
@@ -20,6 +21,16 @@ export default function reducer(state={
           details: action.payload,
         }
       }
+
+      case "FETCH_CAST_FULFILLED": {
+        return {
+          ...state,
+          cast: action.payload,
+        }
+      }
+
+
+
     }
 
     return state

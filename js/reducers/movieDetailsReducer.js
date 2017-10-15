@@ -1,6 +1,7 @@
 export default function reducer(state={
     details: [],
     cast: [],
+    trailer: [],
     fetching: false,
     fetched: false,
     error: null,
@@ -26,6 +27,13 @@ export default function reducer(state={
         return {
           ...state,
           cast: action.payload,
+        }
+      }    
+
+      case "FETCH_MOVIE_TRAILER_FULFILLED": {
+        return {
+          ...state,
+          trailer: action.payload,
         }
       }
 

@@ -1,21 +1,24 @@
 import React from "react"
 import { connect } from "react-redux"
 
-import { fetchMovieDetails, fetchCast } from "../../actions/moviesDetailActions"
+import { fetchMovieDetails, fetchCast, fetchMovieTrailer } from "../../actions/moviesDetailActions"
 
 require('../../../styles/components/movie-details.scss')
 
 @connect(store => {
   return {
     details: store.movieDetails.details,
-    cast: store.movieDetails.cast
+    cast: store.movieDetails.cast,
+    trailer: store.movieDetails.trailer
   }
 })
 export default class MovieDetails extends React.Component {
 
 	componentWillMount(){
+		// TODO better way to deal with async actions
   		this.props.dispatch(fetchMovieDetails(this.props.id));
   		this.props.dispatch(fetchCast(this.props.id));
+  		this.props.dispatch(fetchMovieTrailer(this.props.id));
 	}
 
 	componentWillUnmount(){
@@ -26,7 +29,6 @@ export default class MovieDetails extends React.Component {
 		// console.log('new from details', newProps);
 		// console.log('new from details', prevProps);
 		// this.props.dispatch(fetchMovieDetails(this.props.id));
-
 	}
 
 
@@ -36,7 +38,21 @@ export default class MovieDetails extends React.Component {
 
 
 	render() {
-		const { details, cast } = this.props;
+		const { details, cast, trailer } = this.props;
+
+		let mapTrailer = trailer.data 
+			? trailer.data.results.filter((trailer, index)=>{
+				return index === 0;
+			}).map((trailer, index)=>{
+				let youtube = 'http://www.youtube.com/embed/' + trailer.key;
+				return (
+					<iframe 
+						key={index} 
+						src={youtube}>
+					</iframe>
+				)
+			})
+			: [];
 
 		let releaseDate = details.release_date
 			? details.release_date
@@ -78,9 +94,6 @@ export default class MovieDetails extends React.Component {
 			})
 			: [];
 
-		console.log('details', details);
-
-		// console.log('length', movieLength);
 
 		return (
 		  <div class="movie-detail-container">
@@ -94,8 +107,8 @@ export default class MovieDetails extends React.Component {
 
  			<fig>
 			   	<img src={details.poster_path}/>
-			   	<div>
-			   		trailor here
+			   	<div class="movie-trailer-container">
+					{mapTrailer}
 			   	</div>
 			</fig>
 

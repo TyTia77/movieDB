@@ -12,10 +12,16 @@
 			
 		}
 
-		div{
+		.movie-trailer-container{
 			width: 100%;
-			padding: 50px;
-			border: 1px solid black;
+			
+			padding-left: 5px;
+
+			iframe{
+				// TODO: hardcoded for now
+				height: 100%;
+				width: 500px;
+			}
 		}
 	}
 

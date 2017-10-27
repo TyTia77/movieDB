@@ -15,7 +15,7 @@ ReactDOM.render(
 	  <Router history={hashHistory}>
 	    <Route path="/" component={Layout}>
 	      <IndexRoute component={Body}></IndexRoute>
-	      <Route path="actor" name="actor" component={Actor}></Route>
+	      <Route path="actor(/:id)" name="actor" component={Actor}></Route>
 	      <Route path="movie(/:id)" name="movie" component={Movie}></Route>
 	      <Route path="tv" name="tv" component={Tv}></Route>
 	    </Route>

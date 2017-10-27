@@ -49,7 +49,6 @@ export default class Header extends React.Component {
     this.handleOpenAttr();
   }
 
-
   render() {
     return (
       <div>

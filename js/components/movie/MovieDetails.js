@@ -3,6 +3,8 @@ import { connect } from "react-redux"
 
 import { fetchMovieDetails, fetchCast, fetchMovieTrailer } from "../../actions/moviesDetailActions"
 
+import Cast from "./castComp"
+
 require('../../../styles/components/movie-details.scss')
 
 @connect(store => {
@@ -66,14 +68,7 @@ export default class MovieDetails extends React.Component {
 				return cast.profile_path;
 			}).map((filteredCast, index) => {
 				return (
-					<div key={index} class="cast-container">
-						<img src={filteredCast.profile_path}/>
-						<div class="cast-name-container">
-							<p>{filteredCast.name}</p>
-							<p>{filteredCast.character}</p>
-						</div>
-						<br/>
-					</div>
+					<Cast filteredCast={filteredCast}/>
 				);
 			}) 
 			: [];

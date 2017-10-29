@@ -16,6 +16,13 @@ require('../../../styles/components/movie-details.scss')
 })
 export default class MovieDetails extends React.Component {
 
+	constructor(){
+		super();
+		this.state = {
+			loaded: false
+		}
+	}
+
 	componentWillMount(){
 		// TODO better way to deal with async actions
   		this.props.dispatch(fetchMovieDetails(this.props.id));
@@ -24,12 +31,21 @@ export default class MovieDetails extends React.Component {
 	}
 
 	componentWillUnmount(){
-		//TODO clear on unmount		
+		this.setState({
+			loaded: false
+		})
 	}
 
-	componentWillReceiveProps(newProps){
-		// console.log('new from details', newProps);
-		// console.log('new from details', prevProps);
+	componentWillReceiveProps(newProps, prevProps){
+		const { cast, details, trailer} = newProps;
+		console.log('new from details', newProps);
+		console.log('prev from details', prevProps);
+
+		if (cast && details && trailer){
+			this.setState({
+				loaded: !this.state.loaded
+			});
+		}
 		// this.props.dispatch(fetchMovieDetails(this.props.id));
 	}
 
@@ -89,33 +105,38 @@ export default class MovieDetails extends React.Component {
 			})
 			: [];
 
+		if (this.state.loaded){
+			return (
+			  <div class="movie-detail-container">
+			    <h1 class="movie-detail-title"> {details.title} ({releaseDate}) </h1>
+			    <br/>
+			    <i class="fa fa-clock-o" aria-hidden="true"></i> &nbsp;
+			    {movieLengthHr} hr {movieLengthMin} mins &nbsp;
+			    | &nbsp; <ul>{genres}</ul> &nbsp;
+			    | &nbsp; <i class="fa fa-star" aria-hidden="true"></i> &nbsp;
+	 			{details.vote_average}/10 <br/><br/>
 
-		return (
-		  <div class="movie-detail-container">
-		    <h1 class="movie-detail-title"> {details.title} ({releaseDate}) </h1>
-		    <br/>
-		    <i class="fa fa-clock-o" aria-hidden="true"></i> &nbsp;
-		    {movieLengthHr} hr {movieLengthMin} mins &nbsp;
-		    | &nbsp; <ul>{genres}</ul> &nbsp;
-		    | &nbsp; <i class="fa fa-star" aria-hidden="true"></i> &nbsp;
- 			{details.vote_average}/10 <br/><br/>
+	 			<fig>
+				   	<img src={details.poster_path}/>
+				   	<div class="movie-trailer-container">
+						{mapTrailer}
+				   	</div>
+				</fig>
 
- 			<fig>
-			   	<img src={details.poster_path}/>
-			   	<div class="movie-trailer-container">
-					{mapTrailer}
-			   	</div>
-			</fig>
+			   	<br/>
 
-		   	<br/>
-
-	    	<p class="overview">{details.overview}</p>
+		    	<p class="overview">{details.overview}</p>
 
 
-		    <br/><br/><br/>
-		    CAST:<br/><br/>
-		    {mapCast}
-		  </div>
-		);
+			    <br/><br/><br/>
+			    CAST:<br/><br/>
+			    {mapCast}
+			  </div>
+			);
+		} else {
+			return(
+				<h1> LOADING </h1>
+			)
+		}
 	}
 }

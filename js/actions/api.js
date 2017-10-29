@@ -1,5 +1,5 @@
 // if in dev/live environment
-const dev = true;
+const dev = false;
 const base_url = dev
 	? 'http://api.themoviedb.org/3'
 	: 'https://cors-anywhere.herokuapp.com/http://api.themoviedb.org/3';

@@ -1,24 +1,38 @@
 import React from "react"
+import { connect } from "react-redux"
 
+import { fetchActorDetails } from "../actions/actorActions"
+
+import ActorDetails from "../components/actor/actorDetails.js"
+
+@connect(store => {
+    return {
+        details: store.actorDetails.actorDetails
+    }
+})
 
 export default class Actor extends React.Component {
 
-  render() {
+    componentWillMount() {
+        this.props.dispatch(fetchActorDetails(this.props.params.id));
+    }
 
-	const { params } = this.props;
 
-	//console.log('params', params);
+    render() {
 
-	if (params.id){
-		return (
-			<h1> this is actor id page </h1>
-		);
-	}
+        const { details, params } = this.props;
 
-    return (
-      <div>
-        <h1> this is Actor page </h1>
-      </div>
-    );
-  }
+
+        if (params.id) {
+            return ( 
+            	<ActorDetails details = { details.data }/>
+            );
+        }
+
+        return ( 
+        	<div>
+            	<h1> this is Actor page < /h1> 
+            </div>
+        );
+    }
 }

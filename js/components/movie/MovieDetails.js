@@ -46,7 +46,7 @@ export default class MovieDetails extends React.Component {
 			? trailer.data.results.filter((trailer, index)=>{
 				return index === 0;
 			}).map((trailer, index)=>{
-				let youtube = 'http://www.youtube.com/embed/' + trailer.key;
+				let youtube = `https://www.youtube.com/embed/${trailer.key}`;
 				return (
 					<iframe 
 						key={index} 
@@ -68,7 +68,7 @@ export default class MovieDetails extends React.Component {
 				return cast.profile_path;
 			}).map((filteredCast, index) => {
 				return (
-					<Cast filteredCast={filteredCast}/>
+					<Cast key={index} filteredCast={filteredCast}/>
 				);
 			}) 
 			: [];

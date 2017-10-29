@@ -54,8 +54,6 @@ export function fetchMovieDetails(id) {
           ? info.images_url + '/w185' +imgPath 
           : false;
 
-          console.log('poster', response.data.poster_path);
-
         dispatch({type: "FETCH_MOVIE_DETAILS_FULFILLED", payload: response.data})
       })
       .catch((err) => {

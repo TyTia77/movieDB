@@ -40,7 +40,6 @@ export default class Hero extends React.Component {
   }
 
   handleResize(event){
-    console.log(event.target.innerWidth);
     let current = this.state.heroPos * event.target.innerWidth;
        $('.hero-container').animate({
         scrollLeft: current
@@ -54,7 +53,7 @@ export default class Hero extends React.Component {
   }
 
   handleDotNav(pos){
-    console.log(pos);
+    //console.log(pos);
     // TODO: ADD SLIDE TO POS
   }
 

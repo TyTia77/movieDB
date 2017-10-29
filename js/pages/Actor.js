@@ -7,7 +7,7 @@ export default class Actor extends React.Component {
 
 	const { params } = this.props;
 
-	console.log('params', params);
+	//console.log('params', params);
 
 	if (params.id){
 		return (

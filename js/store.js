@@ -11,6 +11,7 @@ import reducer from "./reducers"
 // use promises when api calls doesn't need to be modified.
 // template for promises in actions
 // store.dispatch({type: "name", payload: axios.get('url')})
-const middleware = applyMiddleware(promise(), thunk, logger())
+//const middleware = applyMiddleware(promise(), thunk, logger())
+const middleware = applyMiddleware(promise(), thunk)
 
 export default createStore(reducer, middleware)

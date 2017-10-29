@@ -5,7 +5,7 @@ let date = new Date();
 let year = date.getFullYear();
 
 let info = getInfo();
-let api = info.base_url +'/movie/now_playing' +info.api_key +'&language=en-US&page=1&region=au';
+let api = `${info.base_url}/movie/now_playing${info.api_key}&language=en-US&page=1&region=au`;
 
 export function fetchNowShowingMovies() {
   return function(dispatch) {

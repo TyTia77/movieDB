@@ -4,8 +4,7 @@ import { getInfo } from "./api"
 let info = getInfo();
 
 export function fetchCast(id) {
-  let api = info.base_url +'/movie/';
-  api += id +'/credits' +info.api_key;
+  let api = `${info.base_url}/movie/${id}/credits${info.api_key}`;
 
   // thunk allows to return a function rather than an object
   // which allows async actions
@@ -40,8 +39,7 @@ export function fetchCast(id) {
 
 export function fetchMovieDetails(id) {
 
-  let api = info.base_url +'/movie/';
-  api += id +info.api_key +'&language=en-US';
+  let api = `${info.base_url}/movie/${id}${info.api_key}&language=en-US`;
 
 
   return function(dispatch) {
@@ -97,8 +95,8 @@ export function fetchMovieDetails(id) {
 // }
 
 export function fetchMovieTrailer(id) {
-  let api = info.base_url +'/movie/';
-  api += id +'/videos' +info.api_key +'&language=en-US';
+
+  let api = `${info.base_url}/movie/${id}/videos${info.api_key}&language=en-US`;
 
   return {type: "FETCH_MOVIE_TRAILER", payload: axios.get(api)}
 }

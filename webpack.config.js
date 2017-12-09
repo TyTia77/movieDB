@@ -3,7 +3,7 @@ const webpack = require('webpack');
 module.exports = {
 
     //define entry point
-    entry: './js/script.js',
+    entry: './src/index.js',
 
     //define output point
     output: {

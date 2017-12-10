@@ -73,29 +73,21 @@ export function fetchPopularMovies() {
     axios
     .get(api)
     .then(response => {
-        let newMovieList = response.data.results.map(
-        mov => {
-            let imgPath =
-            mov.poster_path;
-            mov.poster_path =
-            info.images_url +
-            "/w185" +
-            imgPath;
+        let newMovieList = response.data.results.map( mov => {
+            let imgPath = mov.poster_path;
+            mov.poster_path = info.images_url + "/w185" + imgPath;
             return mov;
-        }
-        );
+        });
 
         dispatch({
-        type:
-            "FETCH_POP_MOVIES_FULFILLED",
-        payload: newMovieList
+          type: "FETCH_POP_MOVIES_FULFILLED",
+          payload: newMovieList
         });
     })
     .catch(err => {
         dispatch({
-        type:
-            "FETCH_POP_MOVIES_REJECTED",
-        payload: err
+          type: "FETCH_POP_MOVIES_REJECTED",
+          payload: err
         });
     });
 };

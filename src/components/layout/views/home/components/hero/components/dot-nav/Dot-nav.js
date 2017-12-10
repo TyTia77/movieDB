@@ -1,5 +1,7 @@
 import React from "react"
 
+require('./dot-nav.scss')
+
 export default class DotNav extends React.Component {
 
   handleClick(event){

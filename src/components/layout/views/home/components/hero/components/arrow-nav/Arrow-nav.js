@@ -1,5 +1,7 @@
 import React from "react"
 
+require('./arrow-nav.scss')
+
 export default class ArrowNav extends React.Component {
 
   handleClick(event){

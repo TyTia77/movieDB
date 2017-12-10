@@ -1,0 +1,13 @@
+.dot-nav-container {
+    position: relative;
+    text-align: center;
+    top: -30px;
+    .fa {
+        color: orange;
+        margin: 0 5px;
+    }
+    .active {
+        border-radius: 50%;
+        background-color: orange;
+    }
+}

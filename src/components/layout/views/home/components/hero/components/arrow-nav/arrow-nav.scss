@@ -1,0 +1,21 @@
+.hero-nav-container {
+    position: relative;
+    width: 100vw;
+    max-width: 980px;
+    margin: 0 auto;
+    top: -200px;
+    .fa {
+        position: absolute;
+        color: orange;
+        transition-duration: 300ms;
+        &:nth-of-type(1) {
+            left: 30px;
+        }
+        &:nth-of-type(2) {
+            right: 30px;
+        }
+        &:hover {
+            transform: scale(1.4);
+        }
+    }
+}

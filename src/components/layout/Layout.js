@@ -1,24 +1,22 @@
-import React from "react"
-import $ from "jquery"
+import React, { PropTypes } from "react"
 
-// import Body from "../components/Body"
 import Footer from "./footer/Footer"
 import Header from "./nav/Header"
 
 require('../../styles/index.scss')
 require('./layout.scss')
 
-export default class Layout extends React.Component {
+const Layout = ({children}) => 
+  <div>
+    <Header/>
+    <main>
+      {children}
+      <Footer/>
+    </main>
+  </div>
 
-  render() {
-    return (
-      <div>
-        <Header/>
-        <main>
-          {this.props.children}
-          <Footer/>
-        </main>
-      </div>
-    );
-  }
+Layout.propTypes = {
+  children: PropTypes.object
 }
+
+export default Layout

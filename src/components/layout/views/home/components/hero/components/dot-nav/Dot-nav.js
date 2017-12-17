@@ -1,35 +1,28 @@
-import React from "react"
+import React, { PropTypes } from "react"
 
 require('./dot-nav.scss')
 
-export default class DotNav extends React.Component {
+const DotNav = ({position, handleClick}) => 
+  <div class="dot-nav-container">
+    {
+      position.map((pos, index) => {
+        let className = pos ? 'fa fa-circle' : 'fa fa-circle-o';
 
-  handleClick(event){
-    this.props.handleClick(
-      parseInt(
-        event.target.getAttribute('data-index')
-      )
-    );
-  }
+        return (
+          <i
+            key={index}
+            class={className}
+            onClick={handleClick}
+            data-index={index}
+            aria-hidden="true"></i>
+        )
+      })
+    }
+  </div>
 
-  render() {
-    const mapHeroDotNav = this.props.position.map((pos, index) => {
-      let className = pos ? 'fa fa-circle' : 'fa fa-circle-o';
-
-      return (
-        <i 
-          key={index} 
-          class={className} 
-          onClick={this.handleClick.bind(this)}
-          data-index={index}
-          aria-hidden="true"></i>
-      )
-    });
-
-    return (
-      <div class="dot-nav-container">
-        {mapHeroDotNav}
-      </div>
-    );
-  }
+DotNav.PropTypes = {
+  handleClick: PropTypes.func,
+  position: PropTypes.number
 }
+
+export default DotNav

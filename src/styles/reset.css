@@ -24,9 +24,7 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
     display: block;
 }
-body {
-    line-height: 1;
-}
+
 ol, ul {
     list-style: none;
 }
@@ -42,9 +40,12 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
-
+html{
+    min-width: 768px;
+}
 body{
     display: flex;
+    line-height: 1;
     flex-direction: column;
     background-color: #fff;
 }

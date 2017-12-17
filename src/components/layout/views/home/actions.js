@@ -14,10 +14,21 @@ export function fetchNewMovies() {
       .then(response => {
         let newMovieList = response.data.results.map(mov => {
           let imgPath = mov.backdrop_path;
+          let posterPath = mov.poster_path;
 
-          mov.backdrop_path = imgPath
-            ? info.images_url + "/w1280" + imgPath
-            : false;
+          if (imgPath) {
+            mov.backdrop_path = info.images_url + "/w300" + imgPath;
+          }
+
+          if (posterPath) {
+            // w185
+            mov.poster_path = info.images_url + "/w342" + posterPath;
+          }
+
+          if (mov.overview.length > 150){
+            mov.overview = mov.overview.split('').slice(0, 150).concat(' ...').join('');
+          }
+          
           return mov;
         });
 

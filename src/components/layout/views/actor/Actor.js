@@ -1,4 +1,4 @@
-import React from "react"
+import React, { PropTypes } from "react"
 import { connect } from "react-redux"
 
 // import { fetchActorDetails } from "../../../../redux/actions/actorActions"
@@ -11,18 +11,14 @@ import ActorDetails from "./pages/actor-details"
         details: store.actorDetails.actorDetails
     }
 })
-
 export default class Actor extends React.Component {
 
     componentWillMount() {
         this.props.dispatch(fetchActorDetails(this.props.params.id));
     }
 
-
     render() {
-
         const { details, params } = this.props;
-
 
         if (params.id) {
             return ( 
@@ -32,8 +28,13 @@ export default class Actor extends React.Component {
 
         return ( 
         	<div>
-            	<h1> this is Actor page < /h1> 
+            	<h1> this is Actor page </h1> 
             </div>
         );
     }
+}
+
+Actor.PropTypes = {
+    details: PropTypes.object,
+    params: PropTypes.object
 }

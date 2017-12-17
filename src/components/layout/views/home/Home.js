@@ -1,17 +1,16 @@
-import $ from "jquery";
-import React from "react";
-import { connect } from "react-redux";
+import React, { PropTypes } from "react"
+import { connect } from "react-redux"
 
-require("./home.scss");
+require("./home.scss")
 
 import {
   fetchNewMovies,
   fetchNowShowingMovies,
   fetchPopularMovies
-} from "./actions";
+} from "./actions"
 
-import Hero from "./components/hero/Hero";
-import Movie from "./components/Movie";
+import Hero from "./components/hero/Hero"
+import Movie from "./components/Movie"
 
 // connects redux with react
 @connect(store => {
@@ -40,4 +39,10 @@ export default class Home extends React.Component {
       </div>
     );
   }
+}
+
+Home.PropTypes = {
+  movies: PropTypes.object.isRequired,
+  nowShowMovies: PropTypes.object.isRequired,
+  newMovies: PropTypes.object.isRequired
 }

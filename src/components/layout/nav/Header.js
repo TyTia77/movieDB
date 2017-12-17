@@ -1,9 +1,9 @@
-import React from "react";
+import React from "react"
 
-import Nav from "./components/Nav";
-import Logo from "./components/Logo";
+import Nav from "./components/nav/Nav"
+import Logo from "./components/logo/Logo"
 
-require('./Header.scss');
+require('./Header.scss')
 
 export default class Header extends React.Component {
 

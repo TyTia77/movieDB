@@ -4,8 +4,9 @@ import $ from "jquery"
 
 import DotNav from "./components/dot-nav/Dot-nav"
 import ArrowNav from "./components/arrow-nav/Arrow-nav"
+import Content from './components/content/Content'
 
-require('./hero.scss');
+require('./hero.scss')
 
 export default class Hero extends React.Component {
   constructor() {
@@ -36,7 +37,6 @@ export default class Hero extends React.Component {
     }
   }
 
-
   updateHeroPos(pos) {
     this.setState({ heroPos: pos });
   }
@@ -45,7 +45,6 @@ export default class Hero extends React.Component {
     //console.log(pos);
     // TODO: ADD SLIDE TO POS
   }
-
 
   slide(event) {
     let heroPos = this.state.heroPos;
@@ -124,20 +123,15 @@ export default class Hero extends React.Component {
         return index === this.state.heroPos ? true : false;
       });
 
+      console.log('movies', movies);
+
     if (this.state.hasHeroItems) {
-      return <div>
+      return (
+        <div>
           <div class="hero-container">
             <div class="hero animated">
-              <h1 class="new-movie-title">
-                {movies[this.state.heroPos].title}
-              </h1>
-              <button>view trailer</button>
-              <button>
-                <Link class="link" to={"/movie/" + movies[this.state.heroPos].id}>
-                  view movie information
-                </Link>
-              </button>
-              <img src={movies[this.state.heroPos].backdrop_path} />
+              <Content movies={movies[this.state.heroPos]} />
+              <img class="hero-background" src={movies[this.state.heroPos].backdrop_path} />
             </div>
           </div>
 
@@ -145,7 +139,8 @@ export default class Hero extends React.Component {
             <ArrowNav handleClick={this.slide.bind(this)} />
             <DotNav position={mapHeroDotNav} handleClick={this.handleDotNav.bind(this)} />
           </div>
-        </div>;
+        </div>
+      );
     } else {
       return <div class="hero-container">
           placeholder hero section

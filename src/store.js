@@ -7,7 +7,7 @@ import promise from "redux-promise-middleware"
 import reducer from "./combined-reducer"
 
 // dev = true, live = false
-export const environment_dev = true;
+export const environment_dev = false;
 
 // thunk allows function return instead of object return in actions
 // use promises when api calls doesn't need to be modified.

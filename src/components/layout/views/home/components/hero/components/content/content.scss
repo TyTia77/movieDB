@@ -44,6 +44,11 @@
                 border-radius: 3px;
                 background-color: orange;
                 color: white;
+                transition-duration: .3s;
+
+                &:hover{
+                    transform: scale(1.2);
+                }
             }
         }
 

@@ -39,7 +39,8 @@ const Movies = ({ movies, title }) => {
 
     return (
         <div class="movies-container">
-            <h1 class="movies-title"> {title} </h1>
+            <h1 class="movies-title animated infinite bounce"> {title} </h1>
+            <hr class="line"/>
             <div class="movie-container">
                 {mapImg}
             </div>

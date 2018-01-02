@@ -27,32 +27,6 @@
             z-index: 1;
         }
 
-        // button {
-        //     position: absolute;
-        //     left: 80px;
-        //     font-size: 20px;
-        //     padding: 5px 10px;
-        //     background-color: orange;
-        //     border: none;
-        //     color: white;
-        //     text-transform: capitalize;
-        //     transition-duration: 300ms;
-        //     z-index: 1;
-        //     .link {
-        //         color: white;
-        //         font-size: 20px;
-        //     }
-        //     &:hover {
-        //         transform: scale(1.15);
-        //     }
-        //     &:nth-of-type(1) {
-        //         bottom: 70px;
-        //     }
-        //     &:nth-of-type(2) {
-        //         bottom: 20px;
-        //     }
-        // }
-        
         .hero-background {
             filter: blur(30px) contrast(35%) opacity(100%);
             width: 100%;
@@ -61,8 +35,6 @@
 }
 
 .nav{
-    // position: absolute;
-    // display: block;
     overflow: visible;
     height: 0;
 }

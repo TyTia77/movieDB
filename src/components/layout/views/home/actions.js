@@ -16,12 +16,18 @@ export function fetchNewMovies() {
           let imgPath = mov.backdrop_path;
           let posterPath = mov.poster_path;
 
-          if (imgPath) {
-            mov.backdrop_path = info.images_url + "/w300" + imgPath;
+          // return false if no poster image
+          if (!posterPath) {
+            return false;
           }
 
-          if (posterPath) {
-            // w185
+          if (imgPath && posterPath) {
+            mov.backdrop_path = info.images_url + "/w300" + imgPath;
+            mov.poster_path = info.images_url + "/w342" + posterPath;
+          }
+
+          if (!imgPath && posterPath) {
+            mov.backdrop_path = info.images_url + "/w342" + posterPath;
             mov.poster_path = info.images_url + "/w342" + posterPath;
           }
 
@@ -30,6 +36,10 @@ export function fetchNewMovies() {
           }
           
           return mov;
+        }).filter(movie => {
+
+          // filter all falsey values out
+          return movie;
         });
 
         dispatch({ type: "FETCH_NEW_MOVIES_FULFILLED", payload: newMovieList });

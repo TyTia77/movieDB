@@ -2,7 +2,7 @@ import React, { PropTypes } from "react"
 
 require('./dot-nav.scss')
 
-const DotNav = ({position, handleClick}) => 
+const DotNav = ({position, handleClick}) =>
   <div class="dot-nav-container">
     {
       position.map((pos, index) => {

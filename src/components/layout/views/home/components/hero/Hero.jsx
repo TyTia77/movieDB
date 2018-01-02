@@ -23,7 +23,7 @@ export default class Hero extends React.Component {
   componentDidMount() {
 
     // call timer when components has mounted
-    this.heroTimer;
+    // this.heroTimer;
   }
 
   // remove events/timers on new page state
@@ -46,16 +46,9 @@ export default class Hero extends React.Component {
     // TODO: ADD SLIDE TO POS
   }
 
-  slide(event) {
+  slide = event => {
     let heroPos = this.state.heroPos;
-
-    // get length of hero sections excluding nulls
-    let length = this.props.movies.reduce(
-      (length, movie) => {
-        return movie.backdrop_path
-          ? length + 1
-          : length;
-      }, 0);
+    let length = this.props.movies.length;
 
     // clear timer on user click
     if (event) {
@@ -136,7 +129,7 @@ export default class Hero extends React.Component {
           </div>
 
           <div class="nav">
-            <ArrowNav handleClick={this.slide.bind(this)} />
+            <ArrowNav handleClick={this.slide} />
             <DotNav position={mapHeroDotNav} handleClick={this.handleDotNav.bind(this)} />
           </div>
         </div>

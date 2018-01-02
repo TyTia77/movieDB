@@ -10,8 +10,14 @@
         padding-bottom: 10px;
         font-family: Impact;
         font-size: 30px;
+    }
+
+    .line{
         margin-bottom: 30px;
-        border-bottom: 4px solid orange;
+        height: 5px;
+        background-color: orange;
+        border: none;
+        // width: 95%;
     }
 
     .movie-container {

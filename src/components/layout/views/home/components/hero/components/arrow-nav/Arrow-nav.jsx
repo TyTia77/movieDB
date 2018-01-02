@@ -4,15 +4,13 @@ require('./arrow-nav.scss')
 
 const ArrowNav = ({handleClick}) => {
 
-  let arrow = [
-    {
-      class: 'fa fa-chevron-left fa-3x', 
-      direction: 'prev'
-    },{
-      class: 'fa fa-chevron-right fa-3x',
-      direction: 'next'
-    }
-  ];
+  let arrow = [{
+    class: 'fa fa-chevron-left fa-3x', 
+    direction: 'prev'
+  },{
+    class: 'fa fa-chevron-right fa-3x',
+    direction: 'next'
+  }];
 
   return (
     <div class="hero-nav-container">

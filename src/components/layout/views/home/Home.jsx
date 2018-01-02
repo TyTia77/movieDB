@@ -29,7 +29,6 @@ export default class Home extends React.Component {
 
   render() {
     const { movies, nowShowMovies, newMovies } = this.props;
-
     return (
       <div class="main">
         <Hero movies={newMovies} />

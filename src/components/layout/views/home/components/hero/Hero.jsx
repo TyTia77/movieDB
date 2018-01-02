@@ -89,22 +89,22 @@ export default class Hero extends React.Component {
     $(".nav").fadeOut(300);
 
     // add class
-    $(".animated")
+    $(".hero")
       .addClass(animate[0])
       .one("animationend", () => {
         this.removeClass();
 
         // update state
         this.updateHeroPos(heroPos);
-        $(".animated").addClass(animate[1]);
+        $(".hero").addClass(animate[1]);
         $(".nav").fadeIn(300);
       });
   }
 
   removeClass(){
-    $('.animated').attr(
+    $('.hero').attr(
       'class', 
-      $(".animated")
+      $(".hero")
         .attr("class")
         .split(" ")
         .filter(cl => cl === "animated" || cl === "hero")

@@ -10,7 +10,7 @@ import {
 } from "./actions"
 
 import Hero from "./components/hero/Hero"
-import Movie from "./components/Movie"
+import Movies from "./components/movies/Movies"
 
 // connects redux with react
 @connect(store => {
@@ -21,7 +21,7 @@ import Movie from "./components/Movie"
   };
 })
 export default class Home extends React.Component {
-  componentWillMount() {
+  componentWillMount(){
     this.props.dispatch(fetchPopularMovies());
     this.props.dispatch(fetchNowShowingMovies());
     this.props.dispatch(fetchNewMovies());
@@ -33,9 +33,8 @@ export default class Home extends React.Component {
     return (
       <div class="main">
         <Hero movies={newMovies} />
-
-        <Movie title="popular movies" movies={movies} />
-        <Movie title="now showing" movies={nowShowMovies} />
+        <Movies title="popular movies" movies={movies} />
+        <Movies title="now showing" movies={nowShowMovies} />
       </div>
     );
   }

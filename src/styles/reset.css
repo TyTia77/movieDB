@@ -41,13 +41,15 @@ table {
     border-spacing: 0;
 }
 html{
-    min-width: 768px;
+    width: 100vw;
 }
 body{
-    display: flex;
+    /* display: flex; */
     line-height: 1;
     flex-direction: column;
     background-color: #fff;
+    overflow-x: hidden;
+    min-width: 768px;
 }
 
 a{

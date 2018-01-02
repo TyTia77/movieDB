@@ -4,8 +4,9 @@ import $ from "jquery"
 
 import DotNav from "./components/dot-nav/Dot-nav"
 import ArrowNav from "./components/arrow-nav/Arrow-nav"
+import Content from './components/content/Content'
 
-require('./hero.scss');
+require('./hero.scss')
 
 export default class Hero extends React.Component {
   constructor() {
@@ -22,7 +23,7 @@ export default class Hero extends React.Component {
   componentDidMount() {
 
     // call timer when components has mounted
-    this.heroTimer;
+    // this.heroTimer;
   }
 
   // remove events/timers on new page state
@@ -36,7 +37,6 @@ export default class Hero extends React.Component {
     }
   }
 
-
   updateHeroPos(pos) {
     this.setState({ heroPos: pos });
   }
@@ -46,17 +46,9 @@ export default class Hero extends React.Component {
     // TODO: ADD SLIDE TO POS
   }
 
-
-  slide(event) {
+  slide = event => {
     let heroPos = this.state.heroPos;
-
-    // get length of hero sections excluding nulls
-    let length = this.props.movies.reduce(
-      (length, movie) => {
-        return movie.backdrop_path
-          ? length + 1
-          : length;
-      }, 0);
+    let length = this.props.movies.length;
 
     // clear timer on user click
     if (event) {
@@ -90,22 +82,22 @@ export default class Hero extends React.Component {
     $(".nav").fadeOut(300);
 
     // add class
-    $(".animated")
+    $(".hero")
       .addClass(animate[0])
       .one("animationend", () => {
         this.removeClass();
 
         // update state
         this.updateHeroPos(heroPos);
-        $(".animated").addClass(animate[1]);
+        $(".hero").addClass(animate[1]);
         $(".nav").fadeIn(300);
       });
   }
 
   removeClass(){
-    $('.animated').attr(
+    $('.hero').attr(
       'class', 
-      $(".animated")
+      $(".hero")
         .attr("class")
         .split(" ")
         .filter(cl => cl === "animated" || cl === "hero")
@@ -124,28 +116,24 @@ export default class Hero extends React.Component {
         return index === this.state.heroPos ? true : false;
       });
 
+      console.log('movies', movies);
+
     if (this.state.hasHeroItems) {
-      return <div>
+      return (
+        <div>
           <div class="hero-container">
             <div class="hero animated">
-              <h1 class="new-movie-title">
-                {movies[this.state.heroPos].title}
-              </h1>
-              <button>view trailer</button>
-              <button>
-                <Link class="link" to={"/movie/" + movies[this.state.heroPos].id}>
-                  view movie information
-                </Link>
-              </button>
-              <img src={movies[this.state.heroPos].backdrop_path} />
+              <Content movies={movies[this.state.heroPos]} />
+              <img class="hero-background" src={movies[this.state.heroPos].backdrop_path} />
             </div>
           </div>
 
           <div class="nav">
-            <ArrowNav handleClick={this.slide.bind(this)} />
+            <ArrowNav handleClick={this.slide} />
             <DotNav position={mapHeroDotNav} handleClick={this.handleDotNav.bind(this)} />
           </div>
-        </div>;
+        </div>
+      );
     } else {
       return <div class="hero-container">
           placeholder hero section

@@ -1,5 +1,5 @@
-import axios from "axios";
-import { getInfo } from "../../../../api";
+import axios from "axios"
+import { getInfo } from "../../../../api"
 
 let info = getInfo();
 

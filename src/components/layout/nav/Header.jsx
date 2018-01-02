@@ -1,9 +1,9 @@
-import React from "react";
+import React from "react"
 
-import Nav from "./components/Nav";
-import Logo from "./components/Logo";
+import Nav from "./components/nav/Nav"
+import Logo from "./components/logo/Logo"
 
-require('./Header.scss');
+require('./Header.scss')
 
 export default class Header extends React.Component {
 
@@ -51,19 +51,17 @@ export default class Header extends React.Component {
 
   render() {
     return (
-      <div>
-        <header className="navbar">
-          <div className="nav-logo-container"> 
-            <Logo />            
-          </div>
-          <nav className="nav-container"> 
-              <Nav />
-           </nav>
-          <div className="search-container" >
-              <input type="text" placeholder="" onClick={this.handleClick.bind(this)} />
-          </div>
-        </header>
-      </div>
+      <header className="navbar">
+        <div className="nav-logo-container"> 
+          <Logo />            
+        </div>
+        <nav className="nav-container"> 
+            <Nav />
+        </nav>
+        <div className="search-container" >
+            <input type="text" placeholder="" onClick={this.handleClick.bind(this)} />
+        </div>
+      </header>
     );
   }
 }

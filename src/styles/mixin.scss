@@ -1,0 +1,16 @@
+// sizes
+$desktop: 1024px;
+$tablet: 768px;
+
+// media queries
+@mixin mediaMax($width) {
+    @media (min-width: $width){
+        @content;
+    }
+}
+
+@mixin mediaMin($width){
+    @media (max-width: $width){
+        @content;
+    }
+}

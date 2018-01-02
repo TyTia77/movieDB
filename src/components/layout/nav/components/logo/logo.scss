@@ -1,0 +1,29 @@
+@import '../../../../../styles/mixin.scss';
+
+.logo-container {
+    float: left;
+
+    .logo {
+        display: block;
+        color: orange;
+        border: 2px solid orange;
+        border-radius: 5px;
+        padding: 5px;
+        margin: 13px;
+    }
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    float: left;
+    padding: 9px 0;
+
+    @include mediaMin(969px){
+        display: none;
+    }
+}
+
+
+

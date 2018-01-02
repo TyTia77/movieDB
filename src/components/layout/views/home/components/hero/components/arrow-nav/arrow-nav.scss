@@ -1,9 +1,10 @@
 .hero-nav-container {
     position: relative;
-    width: 100vw;
-    max-width: 980px;
+    width: 100%;
     margin: 0 auto;
-    top: -200px;
+    top: -240px;
+    z-index: 2;
+    
     .fa {
         position: absolute;
         color: orange;

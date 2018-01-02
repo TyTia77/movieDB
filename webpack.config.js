@@ -1,9 +1,11 @@
 const webpack = require('webpack');
+const debug = process.env.NODE_ENV !== "production";
 
 module.exports = {
+    devtool: debug ? "inline-sourcemap" : false,
 
     //define entry point
-    entry: './src/index.js',
+    entry: './src/index.jsx',
 
     //define output point
     output: {
@@ -12,7 +14,7 @@ module.exports = {
 
     module: {
         loaders: [{
-                test: /\.js$/,
+                test: /\.jsx?$/,
                 exclude: /(node_modules)/,
                 loader: 'babel-loader',
                 query: {
@@ -27,7 +29,15 @@ module.exports = {
         ] //loaders
     }, //module
 
-    plugins: [
+    // you can now require('file') instead of require('file.jsx/js')
+    resolve: {
+        extensions: ['.js', '.jsx', '.es6'],
+    },
+
+    // dont produce file in dev environment
+    plugins: debug ? [] : [
+        new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurrenceOrderPlugin(),
+        new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
     ]
 };

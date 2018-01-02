@@ -1,4 +1,9 @@
 main {
     position: relative;
     top: 60px;
+
+    .content{
+        // 100% - navbar height and footer height
+        min-height: calc(100vh - 110px);
+    }
 }

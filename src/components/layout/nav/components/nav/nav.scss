@@ -1,0 +1,25 @@
+ul {
+    display: flex;
+    height: 100%;
+    li {
+        flex: 1 1 0;
+        text-align: center;
+        align-items: center;
+        padding: 0 30px;
+        transition-duration: 300ms;
+        &:hover {
+            transform: scale(1.4);
+            transition-duration: 300ms;
+        }
+        a {
+            color: #fff;
+            text-transform: capitalize;
+            font-size: 18px;
+            &:hover {
+                transition-duration: 300ms;
+                color: orange;
+            }
+        }
+    }
+}
+

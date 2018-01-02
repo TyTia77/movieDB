@@ -3,6 +3,7 @@
     position: relative; 
     overflow: hidden;
     width: 100vw;
+    height: 400px;
     white-space: nowrap;
     background-color: black;
     box-shadow: 2px 4px 10px 2px black;
@@ -10,7 +11,6 @@
     .hero {
         position: relative;
         height: inherit;
-        max-width: 980px;
         margin: 0 auto;
 
         .new-movie-title {
@@ -24,42 +24,17 @@
             overflow: hidden;
             text-overflow: ellipsis;
             text-transform: capitalize;
+            z-index: 1;
         }
 
-        button {
-            position: absolute;
-            left: 80px;
-            font-size: 20px;
-            padding: 5px 10px;
-            background-color: orange;
-            border: none;
-            color: white;
-            text-transform: capitalize;
-            transition-duration: 300ms;
-            .link {
-                color: white;
-                font-size: 20px;
-            }
-            &:hover {
-                transform: scale(1.15);
-            }
-            &:nth-of-type(1) {
-                bottom: 70px;
-            }
-            &:nth-of-type(2) {
-                bottom: 20px;
-            }
-        }
-        
-        img {
+        .hero-background {
+            filter: blur(30px) contrast(35%) opacity(100%);
             width: 100%;
         }
     }
 }
 
 .nav{
-    // position: absolute;
-    // display: block;
     overflow: visible;
     height: 0;
 }

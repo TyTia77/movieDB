@@ -9,6 +9,9 @@ import { movieDetails } from "./components/layout/views/movie/pages/movie-detail
 // actor view
 import { actorDetails } from "./components/layout/views/actor/reducers";
 
+// tv view
+import { tvDetails } from "./components/layout/views/tv/reducers";
+
 export default combineReducers({
   // home view
   popularMovies,
@@ -20,4 +23,7 @@ export default combineReducers({
 
   // movie view
   movieDetails,
+
+  // tv view
+  tvDetails,
 });

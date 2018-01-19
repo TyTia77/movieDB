@@ -1,5 +1,5 @@
+const debug   = process.env.NODE_ENV ? false : true;
 const webpack = require('webpack');
-const debug = process.env.NODE_ENV ? false : true;
 
 module.exports = {
     devtool: debug ? "inline-sourcemap" : false,

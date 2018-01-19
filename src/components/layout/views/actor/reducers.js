@@ -1,6 +1,7 @@
 export function actorDetails(
   state = {
     actorDetails: [],
+    actors: [],
     fetching: false,
     fetched: false,
     error: null
@@ -22,6 +23,16 @@ export function actorDetails(
         actorDetails: action.payload
       };
     }
+    case "FETCH_POPULAR_ACTORS_FULFILLED":{
+      return {
+        ...state,
+        actors: action.payload
+      };
+    }
+
+    default:
+      console.log('logging uncaught actions', action.type);
+
   }
 
   return state;

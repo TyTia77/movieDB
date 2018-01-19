@@ -5,8 +5,8 @@
   "main": "webpack.config.js",
   "scripts": {
     "dev": "webpack-dev-server --content-base . --inline --hot --port 7000",
-    "buildpro": "NODE_ENV=production webpack",
-    "build": "webpack -p"
+    "buildWin": "SET NODE_ENV=production & webpack -p",
+    "buildMac": "NODE_ENV=production & webpack -p"
   },
   "author": "",
   "license": "ISC",

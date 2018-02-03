@@ -4,6 +4,7 @@ import { connect } from "react-redux"
 import { fetchMovieDetails, fetchCast, fetchMovieTrailer } from "./actions"
 
 import Cast from "./components/cast"
+import Loader from "../../../../../re-usable_components/loading_screen/loading-screen"
 
 require('./movie-details.scss')
 
@@ -135,7 +136,7 @@ export default class MovieDetails extends React.Component {
 			);
 		} else {
 			return(
-				<h1> LOADING </h1>
+				<Loader/>
 			)
 		}
 	}

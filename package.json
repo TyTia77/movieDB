@@ -7,9 +7,9 @@
   "version"     : "1.0.0",
 
   "scripts": {
-    "buildMac" : "NODE_ENV=production & webpack -p",
-    "buildWin" : "SET NODE_ENV=production & webpack -p",
-    "dev"      : "webpack-dev-server --content-base ./build --inline --hot --port 7000"
+    "mac" : "NODE_ENV=production & webpack -p",
+    "win" : "SET NODE_ENV=production & webpack -p",
+    "dev" : "webpack-dev-server --content-base build --inline --hot --port 7000"
   },
 
   "devDependencies": {

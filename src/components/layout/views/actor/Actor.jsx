@@ -5,6 +5,7 @@ import { fetchActorDetails, fetchPopularActors } from "./actions"
 
 import ActorDetails from "./pages/actor-details"
 import ActorHome from "./pages/actor-home/actor-home"
+import Loader from "../../../re-usable_components/loading_screen/loading-screen"
 
 @connect(store => {
     return {
@@ -80,7 +81,7 @@ export default class Actor extends React.Component {
         }
 
         return (
-            <h1>loading</h1>
+            <Loader />
         )
     }
 }

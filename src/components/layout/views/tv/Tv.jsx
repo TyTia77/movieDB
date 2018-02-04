@@ -2,6 +2,7 @@ import React, { PropTypes } from "react"
 import { connect } from "react-redux"
 
 import TvHome from "./pages/home/tv-home"
+import Loader from "../../../re-usable_components/loading_screen/loading-screen"
 
 import { fetchTvPopular, fetchTvToprated, fetchTvLatest } from "./actions"
 
@@ -54,9 +55,7 @@ export default class Tv extends React.Component {
     }
 
     return (
-      <div>
-        <label> loading </label>
-      </div>
+      <Loader />
     )
   }
 } 

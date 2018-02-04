@@ -7,9 +7,17 @@ require('./tv-home.scss')
 
 const tvHome = ({ items }) =>
     <div class="tv-home-container">
-        {
+        {   
             items.map((item, index) => {
                 let url = `${getInfo().images_url}/w185_and_h278_bestv2/${item.poster_path}`;
+
+                // overview description max character count
+                let maxLen = 350;
+
+                // overview exceeds limit then append trailing ... to the end
+                item.overview = item.overview.length > maxLen
+                    ? item.overview.slice(0, maxLen - 4) + ' ...' 
+                    : item.overview;
 
                 return (
                     <div class="tv-home-card" key={index}>
@@ -19,7 +27,8 @@ const tvHome = ({ items }) =>
                             <header class="tv-home-header">
                                 <div className="tv-home-main-header">
                                     <label class="tv-home-main-title">{item.name}</label>
-                                    <label class="tv-home-main-title">{item.vote_average}</label>
+                                    {/* TODO: ratings */}
+                                    {/* <label class="tv-home-main-title">{item.vote_average}</label> */}
                                 </div>
                                 <div className="tv-home-sub-header">
                                     <label>{item.first_air_date}</label>
@@ -28,6 +37,9 @@ const tvHome = ({ items }) =>
                             <main class="tv-home-main">
                                 {item.overview}
                             </main>
+                            <footer class="tv-home-more-info">
+                                more info
+                            </footer>
                         </div>
 
                     </div>

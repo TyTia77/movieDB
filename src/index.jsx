@@ -20,5 +20,4 @@ ReactDOM.render(
 				<Route path="tv" name="tv" component={Tv}></Route>
 			</Route>
 		</Router>
-	</Provider>,
-	app);
+	</Provider>, document.getElementById('app'));

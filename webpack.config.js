@@ -1,5 +1,5 @@
+const debug   = process.env.NODE_ENV ? false : true;
 const webpack = require('webpack');
-const debug = process.env.NODE_ENV ? false : true;
 
 module.exports = {
     devtool: debug ? "inline-sourcemap" : false,
@@ -9,7 +9,17 @@ module.exports = {
 
     //define output point
     output: {
-        filename: './build/bundle.js'
+        path: __dirname +'/build/',
+        filename: 'bundle.js',
+
+        // tells webpack where to serve bundle in memory
+        // instead of having it at /build/, set it to /
+        // 
+        // virtual bundle needs to be on root directory
+        // when running on server, we target src=./bundle
+        // as the server is running on root, but serving 
+        // /build directory
+        publicPath: '/'
     },
 
     module: {

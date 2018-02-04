@@ -5,11 +5,11 @@ require('./nav.scss')
 
 const Nav = () =>
   <div>
-    <ul>
-      <li><IndexLink to="/">home</IndexLink></li>
-      <li><IndexLink to="/actor">actor</IndexLink></li>
-      <li><IndexLink to="/movie">movie</IndexLink></li>
-      <li><IndexLink to="/tv">tv</IndexLink></li>
+    <ul class="nav-items-container">
+      <li class="nav-items-links"><IndexLink to="/">home</IndexLink></li>
+      <li class="nav-items-links"><IndexLink to="/actor">actor</IndexLink></li>
+      <li class="nav-items-links"><IndexLink to="/movie">movie</IndexLink></li>
+      <li class="nav-items-links"><IndexLink to="/tv">tv</IndexLink></li>
     </ul>
   </div>
 
